@@ -67,5 +67,5 @@ for (i in unique(stats.work$len)) {
     }  
 
 qplot(lrk[,1],lrk[,2]/lrk[1,2], xlim=c(0,10001),xlab="length of repeated sequence (99% identity)",ylab="fraction of genomes with repeat") + theme(axis.text=element_text(size=16), axis.title=element_text(size=20))
-qplot(len,N50.pct,data=stats.work, xlim=c(0,10001), geom="boxplot", xlab="sequence length", ylab="maximum theoretical N50\n(as fraction of genome size)", group=len, outlier.size=0) + theme(axis.text=element_text(size=16), axis.title=element_text(size=20))
+qplot(len,N50.pct,data=stats.work, xlim=c(0,10001), geom="boxplot", xlab="read length", ylab="maximum theoretical N50\n(as fraction of genome size)", group=len, outlier.size=0) + theme(axis.text=element_text(size=16), axis.title=element_text(size=20))
 qplot(lrk[,1],(lrk[1,2]-lrk[,2])/lrk[1,2], xlim=c(0,10001), geom="point", xlab="read length", ylab="fraction of closable genomes") + theme(axis.text=element_text(size=16), axis.title=element_text(size=20))
