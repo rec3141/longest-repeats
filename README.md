@@ -5,3 +5,5 @@ to answer a question I had about the length distribution of perfect/near-perfect
 as it relates to assembling complete genomes
 
 run self_blast.sh first, then longest_repeats.R
+
+<img src="image.png">
