@@ -44,7 +44,13 @@ for (genome in rownames(wholeg)) {
 
         data.diff <- sort(abs(diff(data.gen)))
         data.diff <- data.diff[data.diff>len]
-    
+	
+	#circularize
+	diff1 <- data.diff[1]
+	data.diff <- data.diff - data.diff[1]
+	data.diff[length(data.diff)] <- data.diff[length(data.diff)] + diff1
+	    
+	#calculate stats
         data.cumsum <- cumsum(data.diff)
         data.N50 <- data.diff[data.cumsum > max(data.cumsum)/2][1]
         data.longest <- max(data.diff)
