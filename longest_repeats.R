@@ -40,16 +40,15 @@ for (genome in rownames(wholeg)) {
 	# calculate the N50 based on those breaks
     for (len in these.seqlengths) {
         data.gen <- sort(unique(as.numeric(unlist(these.data[these.data[,2] > len,3:6]))))
-        data.gen <- c(1,data.gen,wholeg[genome,1])
 
+	#circularize
+	dist1 <- data.gen[1]
+	data.gen <- data.gen - data.gen[1]
+        data.gen <- c(data.gen,wholeg[genome,1])
+	
         data.diff <- sort(abs(diff(data.gen)))
         data.diff <- data.diff[data.diff>len]
-	
-	#circularize
-	diff1 <- data.diff[1]
-	data.diff <- data.diff - data.diff[1]
-	data.diff[length(data.diff)] <- data.diff[length(data.diff)] + diff1
-	    
+		    
 	#calculate stats
         data.cumsum <- cumsum(data.diff)
         data.N50 <- data.diff[data.cumsum > max(data.cumsum)/2][1]
