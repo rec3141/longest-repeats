@@ -48,8 +48,7 @@ for (genome in rownames(wholeg)) {
         data.cumsum <- cumsum(data.diff)
         data.N50 <- data.diff[data.cumsum > max(data.cumsum)/2][1]
         data.longest <- max(data.diff)
-        data.contigs <- nrow(data.diff)
-        data.save <- rbind(data.save,cbind(genome,len,data.longest,data.longest/max(data.gen),data.N50,data.N50/max(data.gen),data.contigs))
+        data.save <- rbind(data.save,cbind(genome,len,data.longest,data.longest/max(data.gen),data.N50,data.N50/max(data.gen)))
     }
     write.table(data.save,file="longest_repeat_99pct_stats.csv",append=T,row.name=F,sep="\t",quote=F)    
 }
