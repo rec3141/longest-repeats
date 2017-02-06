@@ -43,8 +43,8 @@ for (genome in rownames(wholeg)) {
 
 	#circularize
 	dist1 <- data.gen[1]
-	data.gen <- data.gen - data.gen[1]
-        data.gen <- c(data.gen,wholeg[genome,1])
+	data.gen <- data.gen - dist1
+        data.gen[length(data.gen)] <- data.gen[length(data.gen)] + dist1
 	
         data.diff <- sort(abs(diff(data.gen)))
         data.diff <- data.diff[data.diff>len]
