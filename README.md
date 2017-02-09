@@ -6,4 +6,4 @@ as it relates to assembling complete genomes
 
 run self_blast.sh first, then longest_repeats.R
 
-<img src="image.png">
+<img src="image1.png">
